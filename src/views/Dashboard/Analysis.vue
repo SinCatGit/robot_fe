@@ -30,31 +30,31 @@ export default {
     this.getTreeData();
   },
   watch: {
-    checkedKeys(val) {
-      console.log("onCheck", val);
+    checkedKeys(/*val*/) {
+      // console.log("onCheck", val);
     }
   },
   methods: {
     onExpand(expandedKeys) {
-      console.log("onExpand", expandedKeys);
+      // console.log("onExpand", expandedKeys);
       // if not set autoExpandParent to false, if children expanded, parent can not collapse.
       // or, you can remove all expanded children keys.
       this.expandedKeys = expandedKeys;
       this.autoExpandParent = false;
     },
     onCheck(checkedKeys) {
-      console.log("onCheck", checkedKeys);
+      // console.log("onCheck", checkedKeys);
       this.checkedKeys = checkedKeys;
     },
-    onSelect(selectedKeys, info) {
-      console.log("onSelect", info);
+    onSelect(selectedKeys /*, info*/) {
+      // console.log("onSelect", info);
       this.selectedKeys = selectedKeys;
     },
     getTreeData() {
       axios
         .get("/api/dashboard/chart", { params: { ID: 12345 } })
         .then(response => {
-          console.log(response.data);
+          // console.log(response.data);
           this.treeData = response.data;
         });
     }
