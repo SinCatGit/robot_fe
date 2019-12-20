@@ -14,8 +14,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   data() {
     return {
@@ -51,12 +49,13 @@ export default {
       this.selectedKeys = selectedKeys;
     },
     getTreeData() {
-      axios
-        .get("/api/dashboard/chart", { params: { ID: 12345 } })
-        .then(response => {
-          // console.log(response.data);
-          this.treeData = response.data;
-        });
+      this.$request({
+        url: "/dashboard/chart",
+        method: "get"
+      }).then(response => {
+        // console.log(response.data);
+        this.treeData = response.data;
+      });
     }
   }
 };

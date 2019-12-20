@@ -11,6 +11,11 @@ import {
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+// eslint-disable-next-line no-unused-vars
+import Mock from "./mock/mock";
+import request from "./utils/request";
+
+Vue.prototype.$request = request;
 
 Vue.config.productionTip = false;
 
